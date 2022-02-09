@@ -1,35 +1,20 @@
 import React, { Component } from "react";
+import { Provider } from "react-redux";
 
 import Sidebar from "./components/Sidebar";
 import Video from "./components/Video";
 
+import store from "./store";
+
 class App extends Component {
-  state = {
-    modules: [
-      {
-        id: 1,
-        title: "Iniciando com React",
-        lessons: [
-          { id: 1, title: "Primeira aula" },
-          { id: 2, title: "Segunda aula" },
-        ],
-      },
-      {
-        id: 2,
-        title: "Aprendendo Redux",
-        lessons: [
-          { id: 3, title: "Terceira aula" },
-          { id: 4, title: "Quarta aula" },
-        ],
-      },
-    ],
-  };
 
   render() {
     return (
       <div className="App">
-        <Video />
-        <Sidebar modules={this.state.modules} />
+        <Provider store={store}>
+          <Video />
+          <Sidebar />
+        </Provider>
       </div>
     );
   }
@@ -37,4 +22,4 @@ class App extends Component {
 
 export default App;
 //https://www.youtube.com/watch?v=u99tNt3TZf8
-//22:24
+//38:18
